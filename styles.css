@@ -18,7 +18,6 @@
     --body-font: 'Poppins', sans-serif;
 
     /* .5rem = 8px, 1rem = 16px, 1.5rem = 24px ... */
-    --big-font-size: 2rem;
     --h1-font-size: 1.5rem;
     --h2-font-size: 1.25rem;
     --h3-font-size: 1.125rem;
@@ -31,11 +30,9 @@
     --font-semi-bold: 600;
     --font-bold: 700;
 
-    /*========== Margenes Bottom ==========*/
+    /*========== MB ==========*/
     /* .25rem = 4px, .5rem = 8px, .75rem = 12px ... */
-    --mb-0-25: .25rem;
     --mb-0-5: .5rem;
-    --mb-0-75: .75rem;
     --mb-1: 1rem;
     --mb-1-5: 1.5rem;
     --mb-2: 2rem;
@@ -46,7 +43,6 @@
 /* Font size for large devices */
 @media screen and (min-width: 968px) {
     :root {
-        --big-font-size: 3rem;
         --h1-font-size: 2.25rem;
         --h2-font-size: 1.5rem;
         --h3-font-size: 1.25rem;
@@ -63,7 +59,7 @@
   margin: 0;
 }
 
-html {
+html, body {
   scroll-behavior: smooth;
 }
 
@@ -92,6 +88,7 @@ img {
 }
 
 /*==================== REUSABLE CSS CLASSES ====================*/
+
 .section {
   padding: 2rem 0 4rem;
 }
@@ -184,6 +181,11 @@ img {
   color: black;
 }
 
+.nav__item a:hover {
+  color: var(--text-color);
+  transition: 0.2s;
+}
+
 .nav__close {
   position: absolute;
   top: 10px;
@@ -197,19 +199,14 @@ img {
   color: #CF3E3E;
 }
 
-
 /* show menu */
 .show-menu {
   top: 0;
 }
 
-/* Active link */
-
-
-/* Change background header */
-
 
 /*==================== HOME ====================*/
+
 .home__container {
   margin-top: 3rem;
 }
@@ -260,6 +257,7 @@ img {
   align-items: center;
   width: 135px;
   height: 35px;
+  cursor: pointer;
 
   margin-top: var(--mb-1);
   margin-bottom: var(--mb-0-5);
@@ -267,6 +265,9 @@ img {
   background: #0A95C1;
   box-shadow: 0px 8px 15px 3px rgba(10, 149, 193, 0.37);
   border-radius: 10px 0px;
+
+  transition: 0.2s;
+
 }
 
 .home__details__btn a {
@@ -275,6 +276,10 @@ img {
   font-size: var(--normal-font-size);
   color: #FFFFFF;
   text-transform: uppercase;
+}
+
+.home__details__btn:hover {
+  background: #0991bbcc;
 }
 
 /*==================== ABOUT ====================*/
@@ -288,8 +293,6 @@ img {
 
 .about__img img {
   width: 250px;
-  border: 0.5px solid black;
-  border-radius: 14px;
 }
 
 .about__details {
@@ -308,12 +311,17 @@ img {
 .about__introduction h1, .about__certifications h1 {
   color: var(--second-title-color);
   font-size: var(--h1-font-size);
+  text-transform: uppercase;
 }
 
 .about__introduction p, .about__certifications p {
   text-align: justify;
   font-size: var(--normal-font-size);
   color: var(--text-color);
+}
+
+.about__introduction p {
+  margin-bottom: var(--mb-0-5);
 }
 
 .about__certifications-bold {
@@ -360,7 +368,7 @@ img {
   color: var(--second-title-color);
   font-size: var(--h1-font-size);
   text-align: center;
-  margin-bottom: var(--mb-1-5);
+  margin-bottom: var(--mb-2-5);
 }
 
 .portfolio__content {
@@ -392,7 +400,7 @@ img {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 150px;
+  height: 140px;
 }
 
 .portfolio__details h1 {
@@ -402,7 +410,7 @@ img {
 }
 
 .portfolio__description__text, .portfolio__description__skills {
-  font-size: var(--small-font-size);
+  font-size: var(--smaller-font-size);
   
   text-transform: uppercase;
 }
@@ -422,7 +430,7 @@ img {
   color: var(--second-title-color);
   font-size: var(--h1-font-size);
   text-align: center;
-  margin-bottom: var(--mb-1-5);
+  margin-bottom: var(--mb-2-5);
   text-transform: uppercase;
 }
 
@@ -433,7 +441,7 @@ img {
 }
 
 .contact__form {
-  max-width: 600px;
+  width: 300px;
 }
 
 .contact__form input, textarea {
@@ -449,16 +457,11 @@ img {
   letter-spacing: 1.10px;
 }
 
-.contact__form div {
-  display: flex;
-  gap: 15px;
-}
-
-#nome, #sobrenome, #email, #assunto, #mensagem {
+#nome, #email, #assunto, #mensagem {
   width: 100%;
 }
 
-#email, #assunto, #nome, #sobrenome {
+#email, #assunto, #nome {
   height: 25px;
 }
 
@@ -496,6 +499,7 @@ img {
 }
 
 /*==================== FOOTER ====================*/
+
 .footer__content {
   display: flex;
   justify-content: flex-end;
@@ -527,6 +531,7 @@ img {
 }
 
 /*==================== MEDIA QUERIES ====================*/
+
 /* For small devices */
 @media screen and (max-width: 350px) {
   .container {
@@ -563,7 +568,7 @@ img {
   }
 
   .portfolio__details {
-    height: 115px;
+    height: 100px;
   }
 
   .portfolio__details h1 {
@@ -572,6 +577,10 @@ img {
 
   .portfolio__details p {
     font-size: var(--smaller-font-size);
+  }
+
+  .contact__form {
+    width: 280px;
   }
   
 }
@@ -637,8 +646,12 @@ img {
     padding: 0 1rem;
   }
 
+  .home__container {
+    gap: 1rem;
+  }
+
   .home__container img {
-    width: 400px;
+    width: 350px;
   }
 
   .home__details__text {
@@ -694,10 +707,6 @@ img {
     flex-grow: 1;
   }
 
-  .nav {
-    height: 6rem;
-  }
-
   .navbar__options a, .nav__logo {
     font-size: var(--h3-font-size);
   }
@@ -732,15 +741,16 @@ img {
 
   .about__content {
     justify-content: center;
+    gap: 2rem;
   }
 
   .about__img {
-    width: 460px;
+    width: 420px;
   }
 
   .about__details {
     gap: 1.8rem;
-    width: 500px;
+    width: 550px;
   }
 
   .about__introduction p {

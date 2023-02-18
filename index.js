@@ -30,28 +30,41 @@ function linkAction(){
 }
 navLink.forEach(n => n.addEventListener('click', linkAction))
 
-/*==================== ACCORDION SKILLS ====================*/
+/*==================== ADJUSTING FORMS SUBMIT ====================*/
 
+// Adding an event listener to the form
+const meuFormulario = document.querySelector('#my-form');
 
-/*==================== QUALIFICATION TABS ====================*/
+meuFormulario.addEventListener('submit', function (event) {
+  event.preventDefault(); // block default sending
 
+  const formData = new FormData(this);
 
-/*==================== SERVICES MODAL ====================*/
+  formData.append('...', '...');
 
+  // Building an object with the form's data
+  const data = {};
+  for (const [key, value] of formData.entries()) {
+    data[key] = value;
+  }
 
-/*==================== PORTFOLIO SWIPER  ====================*/
-
-
-/*==================== TESTIMONIAL ====================*/
-
-
-/*==================== SCROLL SECTIONS ACTIVE LINK ====================*/
-
-
-/*==================== CHANGE BACKGROUND HEADER ====================*/ 
-
-
-/*==================== SHOW SCROLL UP ====================*/ 
-
-
-/*==================== DARK LIGHT THEME ====================*/ 
+  // Sending the request using FEACTH API
+  fetch('https://api.staticforms.xyz/submit', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+  .then(response => {
+    if (response.ok) {
+      alert('Sua mensagem foi enviada com sucesso!');
+      this.reset();
+    } else {
+      alert('Ocorreu um erro ao enviar a mensagem');
+    }
+  })
+  .catch(error => {
+    alert('Ocorreu um erro de rede');
+  });
+});
