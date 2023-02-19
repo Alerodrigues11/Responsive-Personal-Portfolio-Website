@@ -25,4 +25,5 @@ Algumas melhorias que pretendo fazer neste projeto no futuro incluem:
 - Incluir tradução para inglês
 - Adicionar animações para tornar a experiência mais atraente
 
-Sinta-se à vontade para me dar feedback sobre o meu portfólio pessoal. Obrigado por visitá-lo!
+Sinta-se à vontade para me dar feedback sobre o meu portfólio pessoal. 
+Obrigado por visitá-lo!
